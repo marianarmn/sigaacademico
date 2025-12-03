@@ -4,61 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablero Académico</title>
+
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #ffffff; /* Fondo completamente blanco */
         }
 
         header {
             display: flex;
             align-items: center;
-            padding: 20px;
+            padding: 20px 40px;
             background-color: white;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
 
         header img {
-            height: 60px;
-            margin-right: 15px;
+            height: 70px;
+            margin-right: 20px;
         }
 
         .titulo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 600;
         }
 
         .subtitulo {
-            font-size: 16px;
+            font-size: 15px;
             color: #555;
-            margin-top: -5px;
+            margin-top: 4px;
         }
 
         .contenedor {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-            gap: 25px;
+            gap: 30px;
             padding: 40px;
         }
 
         .card {
             background-color: white;
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
             transition: 0.2s ease-in-out;
             cursor: pointer;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
+            box-shadow: 0px 6px 16px rgba(0,0,0,0.12);
         }
 
         .card h3 {
             margin: 0;
             font-size: 20px;
+            font-weight: 600;
         }
 
         .card p {
@@ -70,14 +72,18 @@
 </head>
 <body>
 
+    <!-- CABECERA -->
     <header>
-        <img src="logotipo.png" alt="Logo Sabana">
+        <!-- CAMBIO IMPORTANTE: EL LOGO CORRECTO -->
+        <img src="logo.png" alt="Logo Sabana">
+
         <div>
             <div class="titulo">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
             <div class="subtitulo">Código del estudiante: 0000336259</div>
         </div>
     </header>
 
+    <!-- CONTENEDOR DE TARJETAS -->
     <div class="contenedor">
 
         <div class="card" onclick="location.href='notas.html'">
@@ -110,8 +116,7 @@
             <p>Registro de materias y horarios</p>
         </div>
 
-        <!-- BLOQUES NUEVOS QUE PEDISTE -->
-
+        <!-- EXTRA CARDS -->
         <div class="card">
             <h3>Trámites</h3>
             <p>Certificados, constancias, solicitudes</p>
