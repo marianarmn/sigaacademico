@@ -1,70 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Login - Universidad de La Sabana</title>
+
+<!-- Fuente -->
 <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
-body{
-    font-family: Helvetica, Arial;
-    background:#e6eef4;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-.container{
-    background:white;
-    padding:40px;
-    width:350px;
-    border-radius:10px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.15);
-    text-align:center;
-}
-.logo{
-    width:200px;
-    margin-bottom:20px;
-}
-input{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-    border:1px solid #b9c3cc;
-    border-radius:5px;
-}
-button{
-    width:100%;
-    padding:12px;
-    background:#1e3c72;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.2s;
-}
-button:hover{
-    background:#16315c;
-}
+    body{
+        font-family: Helvetica, Arial, sans-serif;
+        background:#f4f6f9;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        margin:0;
+    }
+
+    .container{
+        background:white;
+        padding:40px;
+        width:350px;
+        border-radius:12px;
+        box-shadow:0 6px 25px rgba(0,0,0,0.15);
+        text-align:center;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn{
+        from{opacity:0; transform:translateY(10px);}
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    .logo{
+        width:200px;
+        margin-bottom:20px;
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        margin:10px 0;
+        border:1px solid #c8d2dc;
+        border-radius:5px;
+        background:#f8fafc;
+        transition:0.2s;
+        font-size:14px;
+    }
+
+    input:focus{
+        border-color:#1e3c72;
+        outline:none;
+        background:white;
+        box-shadow:0 0 4px rgba(30,60,114,0.3);
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        background:#1e3c72;
+        color:white;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        letter-spacing:0.5px;
+        transition:0.2s;
+        font-size:15px;
+        margin-top:10px;
+    }
+
+    button:hover{
+        background:#16315c;
+        transform:scale(1.02);
+    }
 </style>
+
 <script>
 function login(){
-    var u=document.getElementById('u').value;
-    var p=document.getElementById('p').value;
-    if(u==='alexibru' && p==='Marirru8459...'){
-        window.location='dashboard.html';
+    let u = document.getElementById('u').value.trim();
+    let p = document.getElementById('p').value.trim();
+
+    if(u === 'alexibru' && p === 'Marirru8459...'){
+        window.location = 'dashboard.html';
     } else {
-        alert('Credenciales incorrectas');
+        alert('⚠️ Credenciales incorrectas. Inténtalo de nuevo.');
     }
 }
 </script>
+
 </head>
 <body>
+
 <div class="container">
-<img src="logo.png" class="logo">
-<input id="u" placeholder="ID Usuario">
-<input id="p" type="password" placeholder="Contraseña">
-<button onclick="login()">Conectar</button>
+    <img src="logo.png" class="logo" alt="Logo La Sabana">
+    <input id="u" placeholder="ID Usuario">
+    <input id="p" type="password" placeholder="Contraseña">
+    <button onclick="login()">Conectar</button>
 </div>
+
 </body>
 </html>
