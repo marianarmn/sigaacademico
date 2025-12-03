@@ -1,66 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-body{
-    font-family:Helvetica, Arial;
-    background:#eef2f5;
-    padding:20px;
-}
-.header{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-.logo{width:200px;}
-.card{
-    background:white;
-    padding:20px;
-    width:280px;
-    border-radius:8px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-    display:inline-block;
-    margin:10px;
-    transition:0.2s;
-}
-.card:hover{
-    transform:translateY(-3px);
-}
-a{
-    color:#0d4c92;
-    font-weight:bold;
-    text-decoration:none;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Principal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Fondo blanco */
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header img {
+            height: 60px;
+        }
+
+        .welcome {
+            font-size: 26px;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #1a1a1a;
+        }
+
+        .card p {
+            color: #444;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
+
 <body>
-<div class="header">
-<img src="logo.png" class="logo">
-<h2>Bienvenido, Alex Mariana Ibarguen Rumpf</h2>
-</div>
 
-<div class="card">
-<h3>Historia Académica</h3>
-<a href="notas.html">Mis Notas Definitivas</a>
-</div>
+    <!-- Encabezado -->
+    <div class="header">
+        <img src="logotipo.png" alt="Logo Sabana">
+        <div class="welcome">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
+    </div>
 
-<div class="card">
-<h3>Bienestar Universitario</h3>
-<p>Consultas PAT, Apoyos y más</p>
-</div>
+    <!-- Contenedor de tarjetas -->
+    <div class="container">
 
-<div class="card">
-<h3>Información Académica</h3>
-<p>Syllabus, Asesores, Parciales</p>
-</div>
+        <a href="notas.html">
+            <div class="card">
+                <h2>Historia Académica</h2>
+                <p>Mis Notas Definitivas</p>
+            </div>
+        </a>
 
-<div class="card">
-<h3>Finanzas</h3>
-<p>Pagos, Créditos, Cuentas</p>
-</div>
+        <div class="card">
+            <h2>Bienestar Universitario</h2>
+            <p>Consultas, apoyos, actividades, PAT</p>
+        </div>
+
+        <div class="card">
+            <h2>Información Académica</h2>
+            <p>Syllabus, asesores, parciales</p>
+        </div>
+
+        <div class="card">
+            <h2>Finanzas</h2>
+            <p>Pagos, créditos, cuentas</p>
+        </div>
+
+        <!-- NUEVOS RECUADROS -->
+        <div class="card">
+            <h2>Becas y Ayudas</h2>
+            <p>Apoyos económicos, becas institucionales</p>
+        </div>
+
+        <div class="card">
+            <h2>Inscripción de Asignaturas</h2>
+            <p>Registro de materias y horarios</p>
+        </div>
+
+    </div>
 
 </body>
 </html>
