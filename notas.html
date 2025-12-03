@@ -1,272 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas Definitivas</title>
+<meta charset="UTF-8">
+<title>Notas Definitivas - Alex Mariana Ibarguen Rumpf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            background-color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<style>
 
-        /* ----- HEADER ----- */
-        header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.10);
-            position: relative;
-        }
+/* ---------- ESTILOS GENERALES ---------- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
 
-        header img {
-            height: 55px;
-        }
+/* ---------- MENÚ LATERAL DESPLEGABLE ---------- */
+.menu-btn {
+    font-size: 28px;
+    cursor: pointer;
+    padding: 15px;
+    background: white;
+    border: none;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
 
-        .titulo-header {
-            font-size: 22px;
-            font-weight: bold;
-            color: #1e3c72;
-        }
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #1e3c72;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+}
 
-        .subtitulo-header {
-            font-size: 14px;
-            color: #444;
-            margin-top: -5px;
-        }
+.sidebar a {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    color: white;
+}
 
-        /* ----- BOTÓN HAMBURGUESA ----- */
-        .menu-btn {
-            position: absolute;
-            left: 15px;
-            top: 22px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #1e3c72;
-            font-weight: bold;
-        }
+.sidebar a:hover {
+    background: rgba(255,255,255,0.15);
+}
 
-        /* ----- SIDEBAR ----- */
-        .sidebar {
-            position: fixed;
-            left: -260px;
-            top: 0;
-            width: 260px;
-            height: 100%;
-            background: #1e3c72;
-            color: white;
-            padding-top: 70px;
-            transition: 0.3s;
-        }
+/* ---------- ENCABEZADO ---------- */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background: white;
+    border-bottom: 2px solid #e4e4e4;
+    gap: 15px;
+}
 
-        .sidebar a {
-            display: block;
-            padding: 15px 25px;
-            color: white;
-            text-decoration: none;
-            font-size: 17px;
-        }
+.header img {
+    height: 55px;
+}
 
-        .sidebar a:hover {
-            background: rgba(255,255,255,0.1);
-        }
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
 
-        /*----- CONTENEDOR PRINCIPAL -----*/
-        .content {
-            padding: 25px;
-        }
+.header-info .titulo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2b4d90;
+}
 
-        h2 {
-            background-color: #2b4d90;
-            color: white;
-            padding: 12px;
-            width: fit-content;
-            border-radius: 4px;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
+.header-info .subtitulo {
+    font-size: 15px;
+    color: #555;
+}
 
-        /*----- TABLA -----*/
-        .panel {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-        }
+/* ---------- CUADRO PRINCIPAL ---------- */
+.contenedor {
+    background: white;
+    width: 92%;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-        }
+h2 {
+    background-color: #2b4d90;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    width: fit-content;
+}
 
-        th {
-            background-color: #e5e8ef;
-            padding: 10px;
-            font-weight: bold;
-            border: 1px solid #c5c5c5;
-            text-align: left;
-        }
+/* ---------- TABLA ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: white;
+}
 
-        td {
-            padding: 10px;
-            border: 1px solid #c5c5c5;
-        }
+th {
+    background: #eef1f8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
 
-        .codigo {
-            color: #1e3c72;
-            font-weight: bold;
-            text-decoration: underline;
-        }
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
 
-        /* ----- RECUADRO DE PROMEDIOS ----- */
-        .promedios-box {
-            margin-top: 25px;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-        }
+/* CÓDIGOS AZULES */
+.codigo {
+    color: #2b4d90;
+    font-weight: bold;
+}
 
-        .promedios-box h3 {
-            margin: 0;
-            font-size: 19px;
-            font-weight: bold;
-            color: #1e3c72;
-        }
+/* ---------- CUADRO INFERIOR ---------- */
+.recuadro-info {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
 
-        .prom-item {
-            margin-top: 10px;
-            font-size: 16px;
-        }
+.recuadro-info h3 {
+    margin-top: 0;
+    color: #2b4d90;
+}
 
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            header img {
-                height: 45px;
-            }
-        }
-    </style>
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
 
-    <script>
-        function abrirMenu() {
-            document.getElementById("sidebar").style.left = "0";
-        }
+.caja {
+    padding: 18px;
+    background: #f7f8fc;
+    border-radius: 10px;
+    border-left: 4px solid #2b4d90;
+}
 
-        function cerrarMenu() {
-            document.getElementById("sidebar").style.left = "-260px";
-        }
-    </script>
+.caja span {
+    font-weight: bold;
+    color: #2b4d90;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+function abrirMenu() {
+    document.getElementById("sidebar").style.width = "260px";
+}
+function cerrarMenu() {
+    document.getElementById("sidebar").style.width = "0";
+}
+</script>
 
 </head>
 
 <body>
 
-    <!-- ----- SIDEBAR ----- -->
-    <div class="sidebar" id="sidebar">
-        <a href="#" onclick="cerrarMenu()">✖ Cerrar</a>
-        <a href="dashboard.html">🏠 Tablero</a>
-        <a href="perfil.html">👤 Perfil Estudiante</a>
-        <a href="notas.html">📘 Mis Notas</a>
-        <a href="#">📄 Trámites</a>
-        <a href="#">🎓 Practica Profesional</a>
-        <a href="#">🤝 Practica Social</a>
-        <a href="#">💳 Créditos</a>
-        <a href="#">🏛 Alumni - Graduados</a>
+<!-- BOTÓN MENÚ -->
+<button class="menu-btn" onclick="abrirMenu()">☰</button>
+
+<!-- MENÚ LATERAL -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="cerrarMenu()">✖ Cerrar</a>
+    <a href="dashboard.html">🏠 Tablero</a>
+    <a href="perfil.html">👤 Perfil</a>
+    <a href="notas.html"><b>📘 Notas</b></a>
+    <a href="#">Trámites</a>
+    <a href="#">Bienestar</a>
+    <a href="#">Inscripción</a>
+    <a href="#">Finanzas</a>
+</div>
+
+<!-- ENCABEZADO CON LOGO -->
+<div class="header">
+    <img src="logotipo.png" alt="Logo">
+    <div class="header-info">
+        <div class="titulo">Alex Mariana Ibarguen Rumpf</div>
+        <div class="subtitulo">Código: 0000336259</div>
+    </div>
+</div>
+
+<!-- CUADRO PRINCIPAL -->
+<div class="contenedor">
+
+<h2>Calificaciones Oficiales</h2>
+
+<table>
+    <tr>
+        <th>Clase</th>
+        <th>Descripción</th>
+        <th>Unidades</th>
+        <th>Calificación</th>
+    </tr>
+
+    <tr>
+        <td class="codigo">AFE CSEX 578002</td>
+        <td>P&CII PERSONA Y AFECTIVIDAD</td>
+        <td>2,00</td>
+        <td>4.8</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">EMPINNOE 81112</td>
+        <td>IND. MUNDIALES INNOVADORAS</td>
+        <td>2,00</td>
+        <td>4.9</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">FINANZAS 81118</td>
+        <td>MATEMATICAS FINANCIERAS</td>
+        <td>2,00</td>
+        <td>4.0</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">INGLES 62135</td>
+        <td>INGLES 5</td>
+        <td>3,00</td>
+        <td>3.8</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">MATFISEI 21101</td>
+        <td>CALCULO DIFERENCIAL</td>
+        <td>3,00</td>
+        <td>3.4</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">NEGOCOMIN 3602ECI</td>
+        <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
+        <td>3,00</td>
+        <td>4.4</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">SEREICEA 81121</td>
+        <td>TEORIA SERVICIO LA CALIDAD</td>
+        <td>3,00</td>
+        <td>4.2</td>
+    </tr>
+</table>
+
+</div>
+
+<!-- CUADRO INFERIOR -->
+<div class="recuadro-info">
+
+<h3>Resumen Académico</h3>
+
+<div class="info-grid">
+
+    <div class="caja">
+        <span>Promedio del ciclo:</span><br> 4.16
     </div>
 
-    <!-- ----- HEADER ----- -->
-    <header>
-        <div class="menu-btn" onclick="abrirMenu()">☰</div>
-
-        <img src="logotipo.png" alt="Logo Sabana">
-
-        <div>
-            <div class="titulo-header">Alex Mariana Ibarguen Rumpf</div>
-            <div class="subtitulo-header">Código del Estudiante: 0000336259</div>
-        </div>
-    </header>
-
-    <!-- ----- CONTENIDO PRINCIPAL ----- -->
-    <div class="content">
-
-        <h2>Calificaciones Oficiales</h2>
-
-        <div class="panel">
-
-            <table>
-                <tr>
-                    <th>Clase</th>
-                    <th>Descripción</th>
-                    <th>Unidades</th>
-                    <th>Calificación</th>
-                </tr>
-
-                <tr>
-                    <td class="codigo">AFE CSEX 578002</td>
-                    <td>P&CII PERSONA Y AFECTIVIDAD</td>
-                    <td>2,00</td>
-                    <td>4.8</td>
-                </tr>
-
-                <tr>
-                    <td class="codigo">EMPINNOE 81112</td>
-                    <td>IND. MUNDIALES INNOVADORAS</td>
-                    <td>2,00</td>
-                    <td>4.9</td>
-                </tr>
-
-                <tr>
-                    <td class="codigo">FINANZAS 81118</td>
-                    <td>MATEMATICAS FINANCIERAS</td>
-                    <td>2,00</td>
-                    <td>4.0</td>
-                </tr>
-
-                <tr>
-                    <td class="codigo">INGLES 62135</td>
-                    <td>INGLES 5</td>
-                    <td>3,00</td>
-                    <td>3.8</td>
-                </tr>
-
-                <tr>
-                    <td class="codigo">MATFISEI 21101</td>
-                    <td>CALCULO DIFERENCIAL</td>
-                    <td>3,00</td>
-                    <td>3.4</td>
-                </tr>
-
-                <tr>
-                    <td class="codigo">NEGOCOMIN 3602ECI</td>
-                    <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
-                    <td>3,00</td>
-                    <td>4.4</td>
-                </tr>
-
-                <tr>
-                    <td class="codigo">SEREICEA 81121</td>
-                    <td>TEORIA SERVICIO LA CALIDAD</td>
-                    <td>3,00</td>
-                    <td>4.2</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- ----- RECUADRO DE PROMEDIOS ----- -->
-        <div class="promedios-box">
-            <h3>Resumen Académico</h3>
-
-            <div class="prom-item"><strong>Promedio del ciclo:</strong> 4.16</div>
-            <div class="prom-item"><strong>Promedio acumulado:</strong> 4.07</div>
-            <div class="prom-item"><strong>Programa:</strong> Administración de Mercadeo y Logística Internacional</div>
-        </div>
-
+    <div class="caja">
+        <span>Promedio acumulado:</span><br> 4.07
     </div>
+
+    <div class="caja">
+        <span>Programa:</span><br> Administración de Mercadeo y Logística Internacional
+    </div>
+
+</div>
+
+</div>
 
 </body>
 </html>
