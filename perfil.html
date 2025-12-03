@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Perfil - Alex Mariana</title>
+<style>
+:root{--azul:#1e3c72;--muted:#666;font-family:Helvetica,Arial,sans-serif}
+body{margin:0;background:#f5f7fb;color:#111;padding:18px}
+.profile{
+  max-width:900px;margin:18px auto;background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(10,30,60,0.06)
+}
+.top{display:flex;gap:16px;align-items:center}
+.top img{width:120px;height:120px;border-radius:8px;object-fit:cover}
+.info h2{margin:0;color:var(--azul)}
+.info p{margin:6px 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.box{background:#f7f9ff;padding:12px;border-radius:10px;border:1px solid #e6eef9}
+.actions{margin-top:14px}
+.button{background:var(--azul);color:white;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+@media(max-width:700px){.top{flex-direction:column;align-items:flex-start}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="profile">
+  <div class="top">
+    <img src="logotipo.png" alt="Foto/Logo">
+    <div class="info">
+      <h2>Alex Mariana Ibarguen Rumpf</h2>
+      <p><strong>Código:</strong> 0000336259 &nbsp; <strong>Cédula:</strong> 1078458342</p>
+      <p><strong>Fecha de nacimiento:</strong> 28 septiembre 2006</p>
+      <p><strong>Programa:</strong> Administración de Mercadeo y Logística Internacional</p>
+      <p><strong>Semestre actual:</strong> 3 • Activo • Créditos aprobados: 61</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <strong>Promedios por semestre</strong>
+      <p>Semestre 1: 3.94</p>
+      <p>Semestre 2: 4.22</p>
+      <p>Semestre 3: 4.16</p>
+    </div>
+    <div class="box">
+      <strong>Contacto</strong>
+      <p>Email institucional: alexibru@unisabana.edu.co</p>
+      <p>Teléfono: 3125354146</p>
+      <p>Dirección: Calle 63d bis #28a-52</p>
+    </div>
+    <div class="box">
+      <strong>Información adicional</strong>
+      <p>Beca: Talento 20%</p>
+      <p>Asesor académico: Liliana Oviedo</p>
+    </div>
+    <div class="box">
+      <strong>Estado académico</strong>
+      <p>Semestres cursados: 3</p>
+      <p>Créditos aprobados: 61</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="button" onclick="alert('Función solo de ejemplo: actualizar datos')">Actualizar datos</button>
+  </div>
+</div>
+
+</body>
+</html>
