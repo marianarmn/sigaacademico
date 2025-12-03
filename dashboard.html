@@ -1,153 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero Académico</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tablero Académico</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff; /* Fondo completamente blanco */
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
 
-        header {
-            display: flex;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: white;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-        }
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
 
-        header img {
-            height: 70px;
-            margin-right: 20px;
-        }
+header img {
+    height: 60px;
+    margin-right: 15px;
+}
 
-        .titulo {
-            font-size: 26px;
-            font-weight: 600;
-        }
+.titulo {
+    font-size: 24px;
+    font-weight: 600;
+}
 
-        .subtitulo {
-            font-size: 15px;
-            color: #555;
-            margin-top: 4px;
-        }
+.subtitulo {
+    font-size: 15px;
+    color: #555;
+    margin-top: -5px;
+}
 
-        .contenedor {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-            gap: 30px;
-            padding: 40px;
-        }
+/* CARDS */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
 
-        .card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-            transition: 0.2s ease-in-out;
-            cursor: pointer;
-        }
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0px 6px 16px rgba(0,0,0,0.12);
-        }
+.card:hover {
+    transform: translateY(-4px);
+}
 
-        .card h3 {
-            margin: 0;
-            font-size: 20px;
-            font-weight: 600;
-        }
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e3c72;
+}
 
-        .card p {
-            margin-top: 8px;
-            color: #666;
-            font-size: 15px;
-        }
-    </style>
+.card p {
+    margin-top: 8px;
+    color: #666;
+    font-size: 14px;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- CABECERA -->
-    <header>
-        <!-- CAMBIO IMPORTANTE: EL LOGO CORRECTO -->
-        <img src="logo.png" alt="Logo Sabana">
-
-        <div>
-            <div class="titulo">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
-            <div class="subtitulo">Código del estudiante: 0000336259</div>
-        </div>
-    </header>
-
-    <!-- CONTENEDOR DE TARJETAS -->
-    <div class="contenedor">
-
-        <div class="card" onclick="location.href='notas.html'">
-            <h3>Historia Académica</h3>
-            <p>Mis notas definitivas</p>
-        </div>
-
-        <div class="card">
-            <h3>Bienestar Universitario</h3>
-            <p>Consultas, apoyos, actividades, PAT</p>
-        </div>
-
-        <div class="card">
-            <h3>Información Académica</h3>
-            <p>Syllabus, asesores, parciales</p>
-        </div>
-
-        <div class="card">
-            <h3>Finanzas</h3>
-            <p>Pagos, créditos, cuentas</p>
-        </div>
-
-        <div class="card">
-            <h3>Becas y Ayudas</h3>
-            <p>Apoyos económicos e institucionales</p>
-        </div>
-
-        <div class="card">
-            <h3>Inscripción de Asignaturas</h3>
-            <p>Registro de materias y horarios</p>
-        </div>
-
-        <!-- EXTRA CARDS -->
-        <div class="card">
-            <h3>Trámites</h3>
-            <p>Certificados, constancias, solicitudes</p>
-        </div>
-
-        <div class="card">
-            <h3>Práctica Social</h3>
-            <p>Programas sociales y requisitos</p>
-        </div>
-
-        <div class="card">
-            <h3>Práctica Profesional</h3>
-            <p>Empresas, asignación, informes</p>
-        </div>
-
-        <div class="card">
-            <h3>Solicitud de Créditos</h3>
-            <p>Líneas de financiación y apoyos</p>
-        </div>
-
-        <div class="card">
-            <h3>Alumni - Graduados</h3>
-            <p>Vínculo profesional y beneficios</p>
-        </div>
-
-        <div class="card">
-            <h3>Información del Alumno</h3>
-            <p>Datos personales, programa, facultad</p>
-        </div>
-
+<header>
+    <img src="logotipo.png" alt="Logo Sabana">
+    <div>
+        <div class="titulo">Bienvenida, Alex Mariana Ibarguen Rumpf</div>
+        <div class="subtitulo">Código del estudiante: 0000336259</div>
     </div>
+</header>
+
+<div class="contenedor">
+
+    <div class="card" onclick="location.href='notas.html'">
+        <h3>Historia Académica</h3>
+        <p>Mis notas definitivas</p>
+    </div>
+
+    <div class="card" onclick="location.href='perfil.html'">
+        <h3>Mi Perfil</h3>
+        <p>Información personal y académica</p>
+    </div>
+
+    <div class="card">
+        <h3>Bienestar Universitario</h3>
+        <p>Consultas, apoyos, PAT</p>
+    </div>
+
+    <div class="card">
+        <h3>Finanzas</h3>
+        <p>Pagos y créditos</p>
+    </div>
+
+    <div class="card">
+        <h3>Becas y Ayudas</h3>
+        <p>Talento, apoyos institucionales</p>
+    </div>
+
+    <div class="card">
+        <h3>Inscripción de Asignaturas</h3>
+        <p>Registro de materias</p>
+    </div>
+
+</div>
 
 </body>
 </html>
