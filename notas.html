@@ -1,149 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Notas Definitivas - Alex Mariana</title>
+<meta charset="UTF-8">
+<title>Notas Definitivas</title>
+
 <style>
-:root{
-  --azul:#1e3c72;
-  --fondo:#ffffff;
-  --muted:#6b6b6b;
-  --panel:#ffffff;
-  --radius:12px;
-  --shadow:0 6px 20px rgba(16,40,79,0.06);
-  font-family: "Helvetica", Arial, sans-serif;
-}
-body{margin:0;background:#f4f6fb;padding:18px;color:#111}
-.header{
-  display:flex;gap:14px;align-items:center;padding:14px 8px;
-}
-.header img{height:64px}
-.header .titles{display:flex;flex-direction:column}
-.header .titles h1{margin:0;font-size:18px;color:var(--azul)}
-.header .titles p{margin:3px 0 0;color:var(--muted);font-size:13px}
-
-/* main card */
-.card{
-  background:var(--panel);padding:16px;border-radius:12px;box-shadow:var(--shadow);max-width:1200px;margin:10px auto;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
 }
 
-/* table */
-.table-wrap{overflow:auto}
-table{width:100%;border-collapse:collapse;margin-top:8px}
-th,td{padding:12px;border-bottom:1px solid #e7e7e7;text-align:left}
-th{background:#f0f4fb;color:#1b3764;font-weight:700}
-td.codigo{color:var(--azul);font-weight:700}
-
-/* make cells larger and spaced like your example */
-tr td:nth-child(3), tr th:nth-child(3){width:110px;text-align:center}
-
-/* bottom summary box */
-.summary{
-  display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;
+/* BOTÓN MENU */
+.menu-btn {
+    font-size: 26px;
+    padding: 15px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
 }
-.summary .item{
-  background:#f7f9ff;padding:14px;border-radius:10px;flex:1;min-width:180px;border:1px solid #e6eef9;
+
+/* MENÚ LATERAL */
+.menu {
+    width: 240px;
+    background: #1e3c72;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    padding-top: 60px;
+    transition: 0.3s;
+    color: white;
 }
-.summary .item h4{margin:0;font-size:14px;color:var(--muted)}
-.summary .item p{margin:8px 0 0;font-size:20px;font-weight:700;color:var(--azul)}
 
-/* program label */
-.prog{margin-top:10px;font-size:13px;color:#445;}
+.menu a {
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+}
 
-/* responsive */
-@media(max-width:700px){
-  .header{flex-direction:column;align-items:flex-start}
-  .summary{flex-direction:column}
+.menu a:hover {
+    background: #16315c;
+}
+
+/* CONTENIDO */
+.contenido {
+    padding: 40px;
+}
+
+/* TITULOS */
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-info img {
+    height: 60px;
+}
+
+h2 {
+    background-color: #2b4d90;
+    color: white;
+    padding: 10px 15px;
+    width: fit-content;
+    border-radius: 4px;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+}
+
+th {
+    background: #e5e8ef;
+}
+
+/* RECUADRO FINAL */
+.box {
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 </style>
+
+<script>
+function abrirMenu(){
+    document.getElementById("menu").style.left = "0";
+}
+function cerrarMenu(){
+    document.getElementById("menu").style.left = "-260px";
+}
+</script>
+
 </head>
+
 <body>
 
-<header class="header">
-  <img src="logotipo.png" alt="Logo Universidad">
-  <div class="titles">
-    <h1>Alex Mariana Ibarguen Rumpf</h1>
-    <p>Código: 0000336259</p>
-  </div>
-</header>
+<div class="menu-btn" onclick="abrirMenu()">☰</div>
 
-<section class="card">
-  <h2 style="margin:0;color:var(--azul)">Calificaciones Oficiales</h2>
+<div id="menu" class="menu">
+    <a onclick="cerrarMenu()">✖ Cerrar</a>
+    <a href="dashboard.html">🏠 Inicio</a>
+    <a href="perfil.html">👤 Perfil</a>
+    <a href="notas.html">📘 Notas</a>
+</div>
 
-  <div class="table-wrap">
-  <table aria-label="Calificaciones">
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Asignatura</th>
-        <th>Créditos</th>
-        <th>Calificación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="codigo">AFE CSEX 578002</td>
-        <td>P&CII PERSONA Y AFECTIVIDAD</td>
-        <td style="text-align:center">2,00</td>
-        <td style="text-align:center">4.8</td>
-      </tr>
-      <tr>
-        <td class="codigo">EMPINNOE 81112</td>
-        <td>IND. MUNDIALES INNOVADORAS</td>
-        <td style="text-align:center">2,00</td>
-        <td style="text-align:center">4.9</td>
-      </tr>
-      <tr>
-        <td class="codigo">FINANZAS 81118</td>
-        <td>MATEMATICAS FINANCIERAS</td>
-        <td style="text-align:center">2,00</td>
-        <td style="text-align:center">4.0</td>
-      </tr>
-      <tr>
-        <td class="codigo">INGLES 62135</td>
-        <td>INGLES 5</td>
-        <td style="text-align:center">3,00</td>
-        <td style="text-align:center">3.8</td>
-      </tr>
-      <tr>
-        <td class="codigo">MATFISEI 21101</td>
-        <td>CALCULO DIFERENCIAL</td>
-        <td style="text-align:center">3,00</td>
-        <td style="text-align:center">3.4</td>
-      </tr>
-      <tr>
-        <td class="codigo">NEGOCOMIN 3602ECI</td>
-        <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
-        <td style="text-align:center">3,00</td>
-        <td style="text-align:center">4.4</td>
-      </tr>
-      <tr>
-        <td class="codigo">SEREICEA 81121</td>
-        <td>TEORIA SERVICIO LA CALIDAD</td>
-        <td style="text-align:center">3,00</td>
-        <td style="text-align:center">4.2</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<div class="contenido">
 
-  <!-- resumen inferior -->
-  <div class="summary" role="contentinfo">
-    <div class="item">
-      <h4>Promedio Ciclo</h4>
-      <p>4.16</p>
+    <div class="header-info">
+        <img src="logotipo.png">
+        <div>
+            <h2>Calificaciones Oficiales</h2>
+            <div><b>Alex Mariana Ibarguen Rumpf</b></div>
+            <div>Código: 0000336259</div>
+        </div>
     </div>
-    <div class="item">
-      <h4>Promedio Acumulado</h4>
-      <p>4.07</p>
-    </div>
-    <div class="item">
-      <h4>Programa</h4>
-      <p>Administración de Mercadeo y Logística Internacional</p>
-    </div>
-  </div>
-</section>
 
+    <table>
+        <tr>
+            <th>Clase</th>
+            <th>Descripción</th>
+            <th>Unidades</th>
+            <th>Calificación</th>
+        </tr>
+
+        <tr><td>AFE CSEX 578002</td><td>P&CII PERSONA Y AFECTIVIDAD</td><td>2</td><td>4.8</td></tr>
+        <tr><td>EMPINNOE 81112</td><td>IND. MUNDIALES INNOVADORAS</td><td>2</td><td>4.9</td></tr>
+        <tr><td>FINANZAS 81118</td><td>MATEMATICAS FINANCIERAS</td><td>2</td><td>4.0</td></tr>
+        <tr><td>INGLES 62135</td><td>INGLES 5</td><td>3</td><td>3.8</td></tr>
+        <tr><td>MATFISEI 21101</td><td>CALCULO DIFERENCIAL</td><td>3</td><td>3.4</td></tr>
+        <tr><td>NEGOCOMIN 3602ECI</td><td>ELECTIVA DE COMERCIO INTERNACIONAL</td><td>3</td><td>4.4</td></tr>
+        <tr><td>SEREICEA 81121</td><td>TEORIA SERVICIO LA CALIDAD</td><td>3</td><td>4.2</td></tr>
+    </table>
+
+    <div class="box">
+        <h3>Resumen Académico</h3>
+        <p><b>Promedio ciclo:</b> 4.16</p>
+        <p><b>Promedio acumulado:</b> 4.07</p>
+        <p><b>Programa:</b> Administración de Mercadeo y Logística Internacional</p>
+    </div>
+
+</div>
 </body>
 </html>
