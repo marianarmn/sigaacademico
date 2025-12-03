@@ -1,125 +1,75 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Tablero Académico - Alex Mariana</title>
+<meta charset="UTF-8">
+<title>Login - Universidad de La Sabana</title>
+<link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --azul-sabana:#1e3c72;
-  --azul-osc:#16315c;
-  --bg:#ffffff;
-  --panel:#ffffff;
-  --muted:#666;
-  --radius:12px;
-  --shadow:0 6px 18px rgba(16,40,79,0.08);
-  --gap:20px;
-  font-family: "Helvetica", Arial, sans-serif;
+body{
+    font-family: Helvetica, Arial;
+    background:#e6eef4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
 }
-*{box-sizing:border-box}
-body{margin:0;background:#f5f7fb;color:#111;}
-header{
-  display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--bg);
-  box-shadow:0 2px 6px rgba(10,20,40,0.04);position:sticky;top:0;z-index:60;
-}
-.logo{height:56px;width:auto;}
-.hamb{
-  display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;
-  background:transparent;border:none;cursor:pointer;margin-right:6px;
-}
-.hamb .bar{width:22px;height:2px;background:var(--azul-sabana);display:block;position:relative}
-.hamb .bar::after,.hamb .bar::before{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--azul-sabana)}
-.hamb .bar::before{top:-7px} .hamb .bar::after{top:7px}
-.header-info{display:flex;flex-direction:column}
-.titulo{font-size:18px;font-weight:700;color:#0b2b56}
-.sub{font-size:13px;color:var(--muted);margin-top:4px}
-
 .container{
-  display:flex;gap:var(--gap);padding:20px;
-  max-width:1200px;margin:18px auto;
+    background:white;
+    padding:40px;
+    width:350px;
+    border-radius:10px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    text-align:center;
 }
-
-/* sidebar (offcanvas) */
-.sidebar{
-  width:280px;background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);
-  padding:18px;flex-shrink:0;transition:transform .28s ease;
+.logo{
+    width:200px;
+    margin-bottom:20px;
 }
-.sidebar.hidden{transform:translateX(-120%);position:fixed;left:16px;top:80px;z-index:80}
-
-/* grid for cards */
-.grid{flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-
-/* card */
-.card{background:var(--panel);padding:18px;border-radius:12px;box-shadow:var(--shadow);cursor:pointer;transition:transform .12s}
-.card h3{margin:0;color:var(--azul-sabana);font-size:16px}
-.card p{margin:8px 0 0;color:var(--muted);font-size:14px}
-
-/* footer small */
-.footer-small{text-align:center;color:#777;margin:28px 0 60px;font-size:13px}
-
-/* responsive: show sidebar as offcanvas on small */
-@media(min-width:900px){
-  .sidebar{position:relative;transform:none}
-  .sidebar.hidden{transform:none;position:relative}
-  .hamb{display:none}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #b9c3cc;
+    border-radius:5px;
+}
+button{
+    width:100%;
+    padding:12px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+button:hover{
+    background:#16315c;
 }
 </style>
-</head>
-<body>
-
-<header>
-  <button class="hamb" aria-label="Abrir menú" id="btnHamb">
-    <span class="bar"></span>
-  </button>
-
-  <img src="logotipo.png" alt="Logo" class="logo" id="headerLogo">
-  <div class="header-info">
-    <div class="titulo">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
-    <div class="sub">Código: 0000336259 • Programa: Administración de Mercadeo y Logística Internacional</div>
-  </div>
-</header>
-
-<div class="container">
-  <aside class="sidebar" id="sidebar">
-    <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px">
-      <img src="logotipo.png" alt="logo" style="height:48px">
-      <div>
-        <div style="font-weight:700;color:var(--azul-sabana)">Alex Mariana I. Rumpf</div>
-        <div style="font-size:13px;color:var(--muted)">0000336259</div>
-      </div>
-    </div>
-
-    <nav style="display:flex;flex-direction:column;gap:8px">
-      <a class="card" href="notas.html" style="text-decoration:none;color:inherit"><h3>Historia Académica</h3><p>Mis notas definitivas</p></a>
-      <a class="card" href="#" style="text-decoration:none;color:inherit"><h3>Bienestar Universitario</h3><p>Consultas, apoyos, actividades</p></a>
-      <a class="card" href="#" style="text-decoration:none;color:inherit"><h3>Becas y Ayudas</h3><p>Apoyos económicos</p></a>
-      <a class="card" href="#" style="text-decoration:none;color:inherit"><h3>Inscripción de Asignaturas</h3><p>Registro y horarios</p></a>
-      <a class="card" href="perfil.html" style="text-decoration:none;color:inherit"><h3>Perfil</h3><p>Mi información</p></a>
-    </nav>
-  </aside>
-
-  <main class="grid" id="gridMain">
-    <div class="card" onclick="location.href='notas.html'"><h3>Historia Académica</h3><p>Ver Notas Definitivas</p></div>
-    <div class="card"><h3>Información Académica</h3><p>Syllabus y parciales</p></div>
-    <div class="card"><h3>Finanzas</h3><p>Pagos y cuentas</p></div>
-    <div class="card"><h3>Trámites</h3><p>Solicitudes y certificados</p></div>
-    <div class="card"><h3>Práctica Profesional</h3><p>Asignación y seguimiento</p></div>
-    <div class="card"><h3>Alumni</h3><p>Vínculos y beneficios</p></div>
-  </main>
-</div>
-
-<div class="footer-small">Universidad de La Sabana — Proyecto educativo</div>
 
 <script>
-// toggle sidebar for small screens
-const btn=document.getElementById('btnHamb');
-const side=document.getElementById('sidebar');
-btn.addEventListener('click',()=>{ side.classList.toggle('hidden'); });
-// ensure sidebar visible on desktop
-function handleResize(){ if(window.innerWidth>900) side.classList.remove('hidden'); }
-window.addEventListener('resize',handleResize);
-handleResize();
-</script>
+function login(){
+    let u=document.getElementById('u').value;
+    let p=document.getElementById('p').value;
 
+    if(u==='alexibru' && p==='Marirru8459...'){
+        window.location='dashboard.html';
+    } else {
+        alert('Credenciales incorrectas');
+    }
+}
+</script>
+</head>
+
+<body>
+<div class="container">
+    <img src="logotipo.png" class="logo" alt="Logo Sabana">
+    <input id="u" placeholder="ID Usuario">
+    <input id="p" type="password" placeholder="Contraseña">
+    <button onclick="login()">Conectar</button>
+</div>
 </body>
 </html>
