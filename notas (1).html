@@ -13,34 +13,30 @@
         }
 
         /* ENCABEZADO */
-        header {
+        .header {
+            background: white;
+            padding: 15px 25px;
             display: flex;
             align-items: center;
-            background: white;
-            padding: 20px;
-            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        header img {
+        .header img {
             height: 60px;
-            margin-right: 20px;
+            margin-right: 15px;
         }
 
-        .titulo {
+        .header h1 {
+            margin: 0;
             font-size: 22px;
-            font-weight: bold;
             color: #2b4d90;
         }
 
-        .subtitulo {
-            font-size: 14px;
-            color: #333;
+        .header p {
+            margin: 0;
             margin-top: 3px;
-        }
-
-        /* CONTENIDO */
-        .contenedor {
-            padding: 20px 40px;
+            font-size: 14px;
+            color: #444;
         }
 
         h2 {
@@ -50,14 +46,14 @@
             width: fit-content;
             border-radius: 4px;
             font-size: 18px;
-            margin-top: 20px;
+            margin: 20px auto;
         }
 
         table {
-            width: 100%;
+            width: 90%;
+            margin: auto;
             border-collapse: collapse;
             background: white;
-            margin-top: 10px;
         }
 
         th {
@@ -76,128 +72,120 @@
         .codigo {
             color: #2b4d90;
             font-weight: bold;
+            text-decoration: underline;
         }
 
-        /* BLOQUE FINAL */
+        /* RECUADRO FINAL */
         .resumen {
-            margin-top: 25px;
+            width: 90%;
+            margin: 20px auto;
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
-            width: 100%;
+            border-left: 5px solid #2b4d90;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         .resumen h3 {
-            margin: 0 0 15px 0;
+            margin-top: 0;
             color: #2b4d90;
         }
 
-        .resumen p {
-            margin: 6px 0;
-            font-size: 15px;
-        }
-
         /* RESPONSIVE */
-        @media(max-width: 600px) {
-            .contenedor {
-                padding: 15px;
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 13px;
             }
 
-            header {
-                flex-direction: column;
-                text-align: center;
+            .header h1 {
+                font-size: 18px;
             }
 
-            header img {
-                margin-bottom: 10px;
+            .header img {
+                height: 50px;
             }
         }
     </style>
-
 </head>
 
 <body>
 
-    <!-- LOGO + TITULO -->
-    <header>
+    <!-- ENCABEZADO -->
+    <div class="header">
         <img src="logotipo.png" alt="Logo Universidad de La Sabana">
         <div>
-            <div class="titulo">Alex Mariana Ibarguen Rumpf</div>
-            <div class="subtitulo">Código del estudiante: 0000336259</div>
+            <h1>Alex Mariana Ibarguen Rumpf</h1>
+            <p>Código del estudiante: 0000336259</p>
         </div>
-    </header>
+    </div>
 
-    <div class="contenedor">
+    <h2>Calificaciones Oficiales</h2>
 
-        <h2>Calificaciones Oficiales</h2>
+    <!-- TABLA PRINCIPAL -->
+    <table>
+        <tr>
+            <th>Clase</th>
+            <th>Descripción</th>
+            <th>Unidades</th>
+            <th>Calificación</th>
+        </tr>
 
-        <table>
-            <tr>
-                <th>Clase</th>
-                <th>Descripción</th>
-                <th>Créditos</th>
-                <th>Calificación</th>
-            </tr>
+        <tr>
+            <td class="codigo">AFE CSEX 578002</td>
+            <td>P&CII PERSONA Y AFECTIVIDAD</td>
+            <td>2,00</td>
+            <td>4.8</td>
+        </tr>
 
-            <tr>
-                <td class="codigo">AFE CSEX 578002</td>
-                <td>P&CII PERSONA Y AFECTIVIDAD</td>
-                <td>2,00</td>
-                <td>4.8</td>
-            </tr>
+        <tr>
+            <td class="codigo">EMPINNOE 81112</td>
+            <td>IND. MUNDIALES INNOVADORAS</td>
+            <td>2,00</td>
+            <td>4.9</td>
+        </tr>
 
-            <tr>
-                <td class="codigo">EMPINNOE 81112</td>
-                <td>IND. MUNDIALES INNOVADORAS</td>
-                <td>2,00</td>
-                <td>4.9</td>
-            </tr>
+        <tr>
+            <td class="codigo">FINANZAS 81118</td>
+            <td>MATEMATICAS FINANCIERAS</td>
+            <td>2,00</td>
+            <td>4.0</td>
+        </tr>
 
-            <tr>
-                <td class="codigo">FINANZAS 81118</td>
-                <td>MATEMATICAS FINANCIERAS</td>
-                <td>2,00</td>
-                <td>4.0</td>
-            </tr>
+        <tr>
+            <td class="codigo">INGLES 62135</td>
+            <td>INGLES 5</td>
+            <td>3,00</td>
+            <td>3.8</td>
+        </tr>
 
-            <tr>
-                <td class="codigo">INGLES 62135</td>
-                <td>INGLES 5</td>
-                <td>3,00</td>
-                <td>3.8</td>
-            </tr>
+        <tr>
+            <td class="codigo">MATFISEI 21101</td>
+            <td>CALCULO DIFERENCIAL</td>
+            <td>3,00</td>
+            <td>3.4</td>
+        </tr>
 
-            <tr>
-                <td class="codigo">MATFISEI 21101</td>
-                <td>CALCULO DIFERENCIAL</td>
-                <td>3,00</td>
-                <td>3.4</td>
-            </tr>
+        <tr>
+            <td class="codigo">NEGOCOMIN 3602ECI</td>
+            <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
+            <td>3,00</td>
+            <td>4.4</td>
+        </tr>
 
-            <tr>
-                <td class="codigo">NEGOCOMIN 3602ECI</td>
-                <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
-                <td>3,00</td>
-                <td>4.4</td>
-            </tr>
+        <tr>
+            <td class="codigo">SEREICEA 81121</td>
+            <td>TEORIA SERVICIO LA CALIDAD</td>
+            <td>3,00</td>
+            <td>4.2</td>
+        </tr>
+    </table>
 
-            <tr>
-                <td class="codigo">SEREICEA 81121</td>
-                <td>TEORIA SERVICIO LA CALIDAD</td>
-                <td>3,00</td>
-                <td>4.2</td>
-            </tr>
-        </table>
-
-        <!-- BLOQUE PROMEDIOS -->
-        <div class="resumen">
-            <h3>Resumen Académico</h3>
-            <p><strong>Programa:</strong> Administración de Mercadeo y Logística Internacional</p>
-            <p><strong>Promedio del Ciclo:</strong> 4.16</p>
-            <p><strong>Promedio Acumulado:</strong> 4.07</p>
-        </div>
-
+    <!-- RECUADRO FINAL -->
+    <div class="resumen">
+        <h3>Resumen Académico</h3>
+        <p><strong>Promedio del ciclo:</strong> 4.16</p>
+        <p><strong>Promedio acumulado:</strong> 4.07</p>
+        <p><strong>Programa:</strong> Administración de Mercadeo y Logística Internacional</p>
     </div>
 
 </body>
