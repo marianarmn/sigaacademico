@@ -1,159 +1,272 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Notas Definitivas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas Definitivas</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
-}
+    <style>
+        body {
+            margin: 0;
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-/* BOTÓN MENU */
-.menu-btn {
-    font-size: 26px;
-    padding: 15px;
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 999;
-}
+        /* ----- HEADER ----- */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.10);
+            position: relative;
+        }
 
-/* MENÚ LATERAL */
-.menu {
-    width: 240px;
-    background: #1e3c72;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: -260px;
-    padding-top: 60px;
-    transition: 0.3s;
-    color: white;
-}
+        header img {
+            height: 55px;
+        }
 
-.menu a {
-    display: block;
-    color: white;
-    padding: 15px 20px;
-    text-decoration: none;
-}
+        .titulo-header {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
 
-.menu a:hover {
-    background: #16315c;
-}
+        .subtitulo-header {
+            font-size: 14px;
+            color: #444;
+            margin-top: -5px;
+        }
 
-/* CONTENIDO */
-.contenido {
-    padding: 40px;
-}
+        /* ----- BOTÓN HAMBURGUESA ----- */
+        .menu-btn {
+            position: absolute;
+            left: 15px;
+            top: 22px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #1e3c72;
+            font-weight: bold;
+        }
 
-/* TITULOS */
-.header-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+        /* ----- SIDEBAR ----- */
+        .sidebar {
+            position: fixed;
+            left: -260px;
+            top: 0;
+            width: 260px;
+            height: 100%;
+            background: #1e3c72;
+            color: white;
+            padding-top: 70px;
+            transition: 0.3s;
+        }
 
-.header-info img {
-    height: 60px;
-}
+        .sidebar a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
 
-h2 {
-    background-color: #2b4d90;
-    color: white;
-    padding: 10px 15px;
-    width: fit-content;
-    border-radius: 4px;
-}
+        .sidebar a:hover {
+            background: rgba(255,255,255,0.1);
+        }
 
-/* TABLA */
-table {
-    width: 100%;
-    background: white;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        /*----- CONTENEDOR PRINCIPAL -----*/
+        .content {
+            padding: 25px;
+        }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #d1d1d1;
-}
+        h2 {
+            background-color: #2b4d90;
+            color: white;
+            padding: 12px;
+            width: fit-content;
+            border-radius: 4px;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
 
-th {
-    background: #e5e8ef;
-}
+        /*----- TABLA -----*/
+        .panel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
 
-/* RECUADRO FINAL */
-.box {
-    margin-top: 25px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-</style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
 
-<script>
-function abrirMenu(){
-    document.getElementById("menu").style.left = "0";
-}
-function cerrarMenu(){
-    document.getElementById("menu").style.left = "-260px";
-}
-</script>
+        th {
+            background-color: #e5e8ef;
+            padding: 10px;
+            font-weight: bold;
+            border: 1px solid #c5c5c5;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #c5c5c5;
+        }
+
+        .codigo {
+            color: #1e3c72;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* ----- RECUADRO DE PROMEDIOS ----- */
+        .promedios-box {
+            margin-top: 25px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .promedios-box h3 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .prom-item {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header img {
+                height: 45px;
+            }
+        }
+    </style>
+
+    <script>
+        function abrirMenu() {
+            document.getElementById("sidebar").style.left = "0";
+        }
+
+        function cerrarMenu() {
+            document.getElementById("sidebar").style.left = "-260px";
+        }
+    </script>
 
 </head>
 
 <body>
 
-<div class="menu-btn" onclick="abrirMenu()">☰</div>
+    <!-- ----- SIDEBAR ----- -->
+    <div class="sidebar" id="sidebar">
+        <a href="#" onclick="cerrarMenu()">✖ Cerrar</a>
+        <a href="dashboard.html">🏠 Tablero</a>
+        <a href="perfil.html">👤 Perfil Estudiante</a>
+        <a href="notas.html">📘 Mis Notas</a>
+        <a href="#">📄 Trámites</a>
+        <a href="#">🎓 Practica Profesional</a>
+        <a href="#">🤝 Practica Social</a>
+        <a href="#">💳 Créditos</a>
+        <a href="#">🏛 Alumni - Graduados</a>
+    </div>
 
-<div id="menu" class="menu">
-    <a onclick="cerrarMenu()">✖ Cerrar</a>
-    <a href="dashboard.html">🏠 Inicio</a>
-    <a href="perfil.html">👤 Perfil</a>
-    <a href="notas.html">📘 Notas</a>
-</div>
+    <!-- ----- HEADER ----- -->
+    <header>
+        <div class="menu-btn" onclick="abrirMenu()">☰</div>
 
-<div class="contenido">
+        <img src="logotipo.png" alt="Logo Sabana">
 
-    <div class="header-info">
-        <img src="logotipo.png">
         <div>
-            <h2>Calificaciones Oficiales</h2>
-            <div><b>Alex Mariana Ibarguen Rumpf</b></div>
-            <div>Código: 0000336259</div>
+            <div class="titulo-header">Alex Mariana Ibarguen Rumpf</div>
+            <div class="subtitulo-header">Código del Estudiante: 0000336259</div>
         </div>
+    </header>
+
+    <!-- ----- CONTENIDO PRINCIPAL ----- -->
+    <div class="content">
+
+        <h2>Calificaciones Oficiales</h2>
+
+        <div class="panel">
+
+            <table>
+                <tr>
+                    <th>Clase</th>
+                    <th>Descripción</th>
+                    <th>Unidades</th>
+                    <th>Calificación</th>
+                </tr>
+
+                <tr>
+                    <td class="codigo">AFE CSEX 578002</td>
+                    <td>P&CII PERSONA Y AFECTIVIDAD</td>
+                    <td>2,00</td>
+                    <td>4.8</td>
+                </tr>
+
+                <tr>
+                    <td class="codigo">EMPINNOE 81112</td>
+                    <td>IND. MUNDIALES INNOVADORAS</td>
+                    <td>2,00</td>
+                    <td>4.9</td>
+                </tr>
+
+                <tr>
+                    <td class="codigo">FINANZAS 81118</td>
+                    <td>MATEMATICAS FINANCIERAS</td>
+                    <td>2,00</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td class="codigo">INGLES 62135</td>
+                    <td>INGLES 5</td>
+                    <td>3,00</td>
+                    <td>3.8</td>
+                </tr>
+
+                <tr>
+                    <td class="codigo">MATFISEI 21101</td>
+                    <td>CALCULO DIFERENCIAL</td>
+                    <td>3,00</td>
+                    <td>3.4</td>
+                </tr>
+
+                <tr>
+                    <td class="codigo">NEGOCOMIN 3602ECI</td>
+                    <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
+                    <td>3,00</td>
+                    <td>4.4</td>
+                </tr>
+
+                <tr>
+                    <td class="codigo">SEREICEA 81121</td>
+                    <td>TEORIA SERVICIO LA CALIDAD</td>
+                    <td>3,00</td>
+                    <td>4.2</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ----- RECUADRO DE PROMEDIOS ----- -->
+        <div class="promedios-box">
+            <h3>Resumen Académico</h3>
+
+            <div class="prom-item"><strong>Promedio del ciclo:</strong> 4.16</div>
+            <div class="prom-item"><strong>Promedio acumulado:</strong> 4.07</div>
+            <div class="prom-item"><strong>Programa:</strong> Administración de Mercadeo y Logística Internacional</div>
+        </div>
+
     </div>
 
-    <table>
-        <tr>
-            <th>Clase</th>
-            <th>Descripción</th>
-            <th>Unidades</th>
-            <th>Calificación</th>
-        </tr>
-
-        <tr><td>AFE CSEX 578002</td><td>P&CII PERSONA Y AFECTIVIDAD</td><td>2</td><td>4.8</td></tr>
-        <tr><td>EMPINNOE 81112</td><td>IND. MUNDIALES INNOVADORAS</td><td>2</td><td>4.9</td></tr>
-        <tr><td>FINANZAS 81118</td><td>MATEMATICAS FINANCIERAS</td><td>2</td><td>4.0</td></tr>
-        <tr><td>INGLES 62135</td><td>INGLES 5</td><td>3</td><td>3.8</td></tr>
-        <tr><td>MATFISEI 21101</td><td>CALCULO DIFERENCIAL</td><td>3</td><td>3.4</td></tr>
-        <tr><td>NEGOCOMIN 3602ECI</td><td>ELECTIVA DE COMERCIO INTERNACIONAL</td><td>3</td><td>4.4</td></tr>
-        <tr><td>SEREICEA 81121</td><td>TEORIA SERVICIO LA CALIDAD</td><td>3</td><td>4.2</td></tr>
-    </table>
-
-    <div class="box">
-        <h3>Resumen Académico</h3>
-        <p><b>Promedio ciclo:</b> 4.16</p>
-        <p><b>Promedio acumulado:</b> 4.07</p>
-        <p><b>Programa:</b> Administración de Mercadeo y Logística Internacional</p>
-    </div>
-
-</div>
 </body>
 </html>
