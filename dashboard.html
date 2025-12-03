@@ -2,13 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tablero Académico</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: #f5f5f5;
 }
 
@@ -22,25 +21,24 @@ header {
 }
 
 header img {
-    height: 60px;
+    height: 55px;
     margin-right: 15px;
 }
 
 .titulo {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 600;
 }
 
 .subtitulo {
-    font-size: 15px;
+    font-size: 14px;
     color: #555;
-    margin-top: -5px;
 }
 
-/* CARDS */
+/* GRID DE TARJETAS */
 .contenedor {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 25px;
     padding: 40px;
 }
@@ -50,25 +48,27 @@ header img {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
-    cursor: pointer;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .card:hover {
     transform: translateY(-4px);
 }
 
-.card h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #1e3c72;
-}
-
-.card p {
-    margin-top: 8px;
-    color: #666;
-    font-size: 14px;
+/* RESPONSIVE */
+@media (max-width: 700px){
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    header img {
+        margin-bottom: 10px;
+    }
+    .contenedor {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
 }
 </style>
 </head>
@@ -76,9 +76,9 @@ header img {
 <body>
 
 <header>
-    <img src="logotipo.png" alt="Logo Sabana">
+    <img src="logotipo.png">
     <div>
-        <div class="titulo">Bienvenida, Alex Mariana Ibarguen Rumpf</div>
+        <div class="titulo">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
         <div class="subtitulo">Código del estudiante: 0000336259</div>
     </div>
 </header>
@@ -91,31 +91,17 @@ header img {
     </div>
 
     <div class="card" onclick="location.href='perfil.html'">
-        <h3>Mi Perfil</h3>
-        <p>Información personal y académica</p>
+        <h3>Perfil del Estudiante</h3>
+        <p>Datos personales y académicos</p>
     </div>
 
-    <div class="card">
-        <h3>Bienestar Universitario</h3>
-        <p>Consultas, apoyos, PAT</p>
-    </div>
-
-    <div class="card">
-        <h3>Finanzas</h3>
-        <p>Pagos y créditos</p>
-    </div>
-
-    <div class="card">
-        <h3>Becas y Ayudas</h3>
-        <p>Talento, apoyos institucionales</p>
-    </div>
-
-    <div class="card">
-        <h3>Inscripción de Asignaturas</h3>
-        <p>Registro de materias</p>
-    </div>
-
+    <div class="card"><h3>Bienestar Universitario</h3><p>Consultas y apoyos</p></div>
+    <div class="card"><h3>Información Académica</h3><p>Syllabus, asesores</p></div>
+    <div class="card"><h3>Finanzas</h3><p>Pagos y créditos</p></div>
+    <div class="card"><h3>Becas y Ayudas</h3><p>Apoyo institucional</p></div>
+    <div class="card"><h3>Inscripción de Asignaturas</h3><p>Registro de materias</p></div>
 </div>
 
 </body>
 </html>
+
