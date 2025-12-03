@@ -8,8 +8,8 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #ffffff;
         }
 
         header {
@@ -21,25 +21,26 @@
         }
 
         header img {
-            height: 65px;
+            height: 60px;
             margin-right: 15px;
         }
 
         .titulo {
             font-size: 26px;
-            font-weight: 700;
-            color: #1e3c72; /* azul Sabana */
+            font-weight: bold;
+            color: #1e3c72;
         }
 
         .subtitulo {
             font-size: 15px;
-            color: #333;
-            margin-top: -4px;
+            color: #777;
+            margin-top: -5px;
         }
 
+        /* GRID RESPONSIVE */
         .contenedor {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 25px;
             padding: 40px;
         }
@@ -47,66 +48,46 @@
         .card {
             background-color: white;
             padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
-            transition: 0.2s ease-in-out;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+            transition: 0.2s;
             cursor: pointer;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
         }
 
         .card h3 {
             margin: 0;
             font-size: 20px;
-            font-weight: 800;
-            color: #1e3c72; /* azul Sabana */
+            font-weight: bold;
+            color: #1e3c72;
         }
 
         .card p {
             margin-top: 8px;
-            color: #666;
+            color: #555;
             font-size: 15px;
         }
-
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            header {
-                padding: 15px;
-            }
-            header img {
-                height: 55px;
-            }
-            .titulo {
-                font-size: 22px;
-            }
-            .contenedor {
-                grid-template-columns: 1fr;
-                padding: 20px;
-            }
-        }
     </style>
-
 </head>
 <body>
 
-    <!-- ------------------ HEADER -------------------- -->
     <header>
         <img src="logotipo.png" alt="Logo Sabana">
         <div>
-            <div class="titulo">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
+            <div class="titulo">Bienvenida, Alex Mariana Ibarguen Rumpf</div>
             <div class="subtitulo">Código del estudiante: 0000336259</div>
         </div>
     </header>
 
-    <!-- ------------------ CONTENEDOR -------------------- -->
     <div class="contenedor">
 
         <div class="card" onclick="location.href='notas.html'">
             <h3>Historia Académica</h3>
-            <p>Mis notas definitivas</p>
+            <p>Mis notas oficiales</p>
         </div>
 
         <div class="card" onclick="location.href='perfil.html'">
@@ -116,7 +97,7 @@
 
         <div class="card">
             <h3>Bienestar Universitario</h3>
-            <p>Consultas, apoyos, actividades, PAT</p>
+            <p>Consultas, apoyos, actividades</p>
         </div>
 
         <div class="card">
@@ -131,7 +112,7 @@
 
         <div class="card">
             <h3>Becas y Ayudas</h3>
-            <p>Apoyos económicos e institucionales</p>
+            <p>Apoyos institucionales</p>
         </div>
 
         <div class="card">
@@ -139,7 +120,8 @@
             <p>Registro de materias y horarios</p>
         </div>
 
-        <!-- ---------------- BLOQUES NUEVOS ---------------- -->
+        <!-- RECUADROS QUE FALTABAN -->
+
         <div class="card">
             <h3>Trámites</h3>
             <p>Certificados, constancias, solicitudes</p>
@@ -147,27 +129,22 @@
 
         <div class="card">
             <h3>Práctica Social</h3>
-            <p>Programas sociales y requisitos</p>
+            <p>Requisitos y seguimiento</p>
         </div>
 
         <div class="card">
             <h3>Práctica Profesional</h3>
-            <p>Empresas, asignación, informes</p>
+            <p>Empresas y asignación</p>
         </div>
 
         <div class="card">
             <h3>Solicitud de Créditos</h3>
-            <p>Líneas de financiación y apoyos</p>
+            <p>Opciones de financiación</p>
         </div>
 
         <div class="card">
             <h3>Alumni - Graduados</h3>
-            <p>Vínculo profesional y beneficios</p>
-        </div>
-
-        <div class="card">
-            <h3>Información del Alumno</h3>
-            <p>Datos personales, programa, facultad</p>
+            <p>Red profesional y beneficios</p>
         </div>
 
     </div>
