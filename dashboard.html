@@ -2,149 +2,202 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero Académico</title>
+    <title>Notas Definitivas - Alex Mariana Ibarguen Rumpf</title>
 
     <style>
         body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             background-color: #ffffff;
+            margin: 0;
+            padding: 0;
         }
 
-        header {
+        /* Encabezado superior */
+        .header {
             display: flex;
             align-items: center;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            gap: 15px;
+            padding: 20px 30px;
+            background: #ffffff;
+            border-bottom: 2px solid #e2e6ee;
         }
 
-        header img {
+        .header img {
             height: 60px;
-            margin-right: 15px;
         }
 
-        .titulo {
-            font-size: 26px;
-            font-weight: bold;
+        .header .titulos {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header .nombre {
+            font-size: 22px;
+            font-weight: 700;
             color: #1e3c72;
         }
 
-        .subtitulo {
+        .header .codigo {
             font-size: 15px;
-            color: #777;
-            margin-top: -5px;
-        }
-
-        /* GRID RESPONSIVE */
-        .contenedor {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 25px;
-            padding: 40px;
-        }
-
-        .card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
-        }
-
-        .card h3 {
-            margin: 0;
-            font-size: 20px;
-            font-weight: bold;
-            color: #1e3c72;
-        }
-
-        .card p {
-            margin-top: 8px;
             color: #555;
-            font-size: 15px;
+        }
+
+        /* Título de la sección */
+        h2 {
+            background-color: #2b4d90;
+            color: white;
+            padding: 12px 18px;
+            width: fit-content;
+            border-radius: 6px;
+            font-size: 18px;
+            margin: 20px auto;
+        }
+
+        /* Contenedor principal */
+        .contenedor-principal {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #e5e8ef;
+            padding: 10px;
+            font-weight: bold;
+            border: 1px solid #d8d8d8;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #d8d8d8;
+        }
+
+        /* Color azul Sabana */
+        .codigo-materia {
+            color: #2b4d90;
+            font-weight: bold;
+        }
+
+        /* Caja de promedios */
+        .recuadro-promedios {
+            margin-top: 25px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .recuadro-promedios h3 {
+            margin: 0 0 10px 0;
+            color: #1e3c72;
+        }
+
+        .info-linea {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        .dato {
+            font-weight: bold;
+            color: #2b4d90;
         }
     </style>
+
 </head>
+
 <body>
 
-    <header>
-        <img src="logotipo.png" alt="Logo Sabana">
-        <div>
-            <div class="titulo">Bienvenida, Alex Mariana Ibarguen Rumpf</div>
-            <div class="subtitulo">Código del estudiante: 0000336259</div>
+    <!-- ENCABEZADO -->
+    <div class="header">
+        <img src="logotipo.png" alt="Logo Universidad de La Sabana">
+        <div class="titulos">
+            <div class="nombre">Alex Mariana Ibarguen Rumpf</div>
+            <div class="codigo">Código del estudiante: 0000336259</div>
         </div>
-    </header>
+    </div>
 
-    <div class="contenedor">
+    <div class="contenedor-principal">
 
-        <div class="card" onclick="location.href='notas.html'">
-            <h3>Historia Académica</h3>
-            <p>Mis notas oficiales</p>
-        </div>
+        <h2>Calificaciones Oficiales</h2>
 
-        <div class="card" onclick="location.href='perfil.html'">
-            <h3>Perfil del Estudiante</h3>
-            <p>Información personal y académica</p>
-        </div>
+        <!-- TABLA DE NOTAS -->
+        <table>
+            <tr>
+                <th>Clase</th>
+                <th>Descripción</th>
+                <th>Unidades</th>
+                <th>Calificación</th>
+            </tr>
 
-        <div class="card">
-            <h3>Bienestar Universitario</h3>
-            <p>Consultas, apoyos, actividades</p>
-        </div>
+            <tr>
+                <td class="codigo-materia">AFE CSEX 578002</td>
+                <td>P&CII PERSONA Y AFECTIVIDAD</td>
+                <td>2,00</td>
+                <td>4.8</td>
+            </tr>
 
-        <div class="card">
-            <h3>Información Académica</h3>
-            <p>Syllabus, asesores, parciales</p>
-        </div>
+            <tr>
+                <td class="codigo-materia">EMPINNOE 81112</td>
+                <td>IND. MUNDIALES INNOVADORAS</td>
+                <td>2,00</td>
+                <td>4.9</td>
+            </tr>
 
-        <div class="card">
-            <h3>Finanzas</h3>
-            <p>Pagos, créditos, cuentas</p>
-        </div>
+            <tr>
+                <td class="codigo-materia">FINANZAS 81118</td>
+                <td>MATEMATICAS FINANCIERAS</td>
+                <td>2,00</td>
+                <td>4.0</td>
+            </tr>
 
-        <div class="card">
-            <h3>Becas y Ayudas</h3>
-            <p>Apoyos institucionales</p>
-        </div>
+            <tr>
+                <td class="codigo-materia">INGLES 62135</td>
+                <td>INGLES 5</td>
+                <td>3,00</td>
+                <td>3.8</td>
+            </tr>
 
-        <div class="card">
-            <h3>Inscripción de Asignaturas</h3>
-            <p>Registro de materias y horarios</p>
-        </div>
+            <tr>
+                <td class="codigo-materia">MATFISEI 21101</td>
+                <td>CALCULO DIFERENCIAL</td>
+                <td>3,00</td>
+                <td>3.4</td>
+            </tr>
 
-        <!-- RECUADROS QUE FALTABAN -->
+            <tr>
+                <td class="codigo-materia">NEGOCOMIN 3602ECI</td>
+                <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
+                <td>3,00</td>
+                <td>4.4</td>
+            </tr>
 
-        <div class="card">
-            <h3>Trámites</h3>
-            <p>Certificados, constancias, solicitudes</p>
-        </div>
+            <tr>
+                <td class="codigo-materia">SEREICEA 81121</td>
+                <td>TEORIA SERVICIO LA CALIDAD</td>
+                <td>3,00</td>
+                <td>4.2</td>
+            </tr>
+        </table>
 
-        <div class="card">
-            <h3>Práctica Social</h3>
-            <p>Requisitos y seguimiento</p>
-        </div>
+        <!-- RECUADRO DE PROMEDIOS -->
+        <div class="recuadro-promedios">
+            <h3>Resumen Académico</h3>
 
-        <div class="card">
-            <h3>Práctica Profesional</h3>
-            <p>Empresas y asignación</p>
-        </div>
-
-        <div class="card">
-            <h3>Solicitud de Créditos</h3>
-            <p>Opciones de financiación</p>
-        </div>
-
-        <div class="card">
-            <h3>Alumni - Graduados</h3>
-            <p>Red profesional y beneficios</p>
+            <div class="info-linea">Programa: <span class="dato">Administración de Mercadeo y Logística Internacional</span></div>
+            <div class="info-linea">Promedio ciclo: <span class="dato">4.16</span></div>
+            <div class="info-linea">Promedio acumulado: <span class="dato">4.07</span></div>
         </div>
 
     </div>
