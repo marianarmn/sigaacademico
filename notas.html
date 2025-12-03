@@ -1,47 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Notas Definitivas</title>
-<link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-body{
-    font-family:Helvetica, Arial;
-    padding:20px;
-    background:#f7f9fc;
-}
-.logo{width:200px;margin-bottom:10px;}
-table{
-    width:60%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-th,td{
-    padding:12px;
-    border:1px solid #b9c3cc;
-}
-th{
-    background:#1e3c72;
-    color:white;
-}
-tr:nth-child(even){
-    background:#eef2f5;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Notas Definitivas - Alex Mariana Ibarguen Rumpf</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            background-color: #2b4d90;
+            color: white;
+            padding: 10px;
+            width: 320px;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: #e5e8ef;
+            padding: 8px;
+            font-weight: bold;
+            border: 1px solid #c5c5c5;
+            text-align: left;
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid #c5c5c5;
+        }
+
+        /* color azul para los codigos */
+        .codigo {
+            color: #2b4d90;
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
+
 <body>
-<img src="logo.png" class="logo">
-<h2>Notas Definitivas - Alex Mariana Ibarguen Rumpf</h2>
+
+<h2>Calificaciones Oficiales</h2>
 
 <table>
-<tr><th>#</th><th>Nota</th></tr>
-<tr><td>1</td><td>4.8</td></tr>
-<tr><td>2</td><td>4.9</td></tr>
-<tr><td>3</td><td>3.8</td></tr>
-<tr><td>4</td><td>4.0</td></tr>
-<tr><td>5</td><td>3.4</td></tr>
-<tr><td>6</td><td>4.4</td></tr>
-<tr><td>7</td><td>4.2</td></tr>
+    <tr>
+        <th>Clase</th>
+        <th>Descripción</th>
+        <th>Unidades</th>
+        <th>Calificación</th>
+    </tr>
+
+    <tr>
+        <td class="codigo">AFE CSEX 578002</td>
+        <td>P&CII PERSONA Y AFECTIVIDAD</td>
+        <td>2,00</td>
+        <td>4.8</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">EMPINNOE 81112</td>
+        <td>IND. MUNDIALES INNOVADORAS</td>
+        <td>2,00</td>
+        <td>4.9</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">FINANZAS 81118</td>
+        <td>MATEMATICAS FINANCIERAS</td>
+        <td>2,00</td>
+        <td>4.0</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">INGLES 62135</td>
+        <td>INGLES 5</td>
+        <td>3,00</td>
+        <td>3.8</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">MATFISEI 21101</td>
+        <td>CALCULO DIFERENCIAL</td>
+        <td>3,00</td>
+        <td>3.4</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">NEGOCOMIN 3602ECI</td>
+        <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
+        <td>3,00</td>
+        <td>4.4</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">SEREICEA 81121</td>
+        <td>TEORIA SERVICIO LA CALIDAD</td>
+        <td>3,00</td>
+        <td>4.2</td>
+    </tr>
 </table>
 
-</body></html>
+</body>
+</html>
