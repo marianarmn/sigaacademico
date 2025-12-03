@@ -1,220 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas Oficiales</title>
+<meta charset="UTF-8">
+<title>Notas Definitivas - Alex Mariana Ibarguen Rumpf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #ffffff;
-        }
+<style>
 
-        /* ENCABEZADO */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 25px;
-            background-color: white;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.12);
-            position: relative;
-        }
+/* ---------- ESTILOS GENERALES ---------- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
 
-        header img {
-            height: 55px;
-            margin-right: 15px;
-        }
+/* ---------- MENÚ LATERAL DESPLEGABLE ---------- */
+.menu-btn {
+    font-size: 28px;
+    cursor: pointer;
+    padding: 15px;
+    background: white;
+    border: none;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
 
-        .datos-usuario {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #1e3c72;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+}
 
-        .titulo {
-            font-size: 22px;
-            font-weight: bold;
-            color: black; /* ← A petición tuya */
-        }
+.sidebar a {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    color: white;
+}
 
-        .subtitulo {
-            font-size: 14px;
-            color: #555;
-            margin-top: -4px;
-        }
+.sidebar a:hover {
+    background: rgba(255,255,255,0.15);
+}
 
-        /* BOTÓN MENÚ */
-        .menu-btn {
-            font-size: 28px;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 6px;
-            border: none;
-            background: none;
-        }
+/* ---------- ENCABEZADO ---------- */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background: white;
+    border-bottom: 2px solid #e4e4e4;
+    gap: 15px;
+}
 
-        /* MENÚ LATERAL DESPLEGABLE */
-        .menu-lateral {
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: -260px;
-            height: 100vh;
-            background: #1e3c72;
-            color: white;
-            padding-top: 60px;
-            transition: 0.3s;
-            box-shadow: 4px 0 12px rgba(0,0,0,0.25);
-        }
+.header img {
+    height: 55px;
+}
 
-        .menu-lateral a {
-            display: block;
-            padding: 15px 25px;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
 
-        .menu-lateral a:hover {
-            background: #16315c;
-        }
+.header-info .titulo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2b4d90;
+}
 
-        /* TABLA PRINCIPAL */
-        .contenedor {
-            padding: 35px;
-        }
+.header-info .subtitulo {
+    font-size: 15px;
+    color: #555;
+}
 
-        .titulo-seccion {
-            font-size: 26px;
-            font-weight: bold;
-            color: #1e3c72;
-            margin-bottom: 15px;
-        }
+/* ---------- CUADRO PRINCIPAL ---------- */
+.contenedor {
+    background: white;
+    width: 92%;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
 
-        .cuadro {
-            background: white;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
+h2 {
+    background-color: #2b4d90;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    width: fit-content;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-        }
+/* ---------- TABLA ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: white;
+}
 
-        th {
-            background: #1e3c72;
-            color: white;
-            padding: 12px;
-            font-size: 15px;
-        }
+th {
+    background: #eef1f8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
 
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #dddddd;
-            font-size: 15px;
-        }
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+/* CÓDIGOS AZULES */
+.codigo {
+    color: #2b4d90;
+    font-weight: bold;
+}
 
-        /* FORMATOS DECIMALES */
-        .decimal {
-            text-align: center;
-        }
+/* ---------- CUADRO INFERIOR ---------- */
+.recuadro-info {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
 
-    </style>
+.recuadro-info h3 {
+    margin-top: 0;
+    color: #2b4d90;
+}
 
-    <script>
-        function abrirMenu(){
-            document.getElementById("menu").style.left = "0px";
-        }
-        function cerrarMenu(){
-            document.getElementById("menu").style.left = "-260px";
-        }
-    </script>
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.caja {
+    padding: 18px;
+    background: #f7f8fc;
+    border-radius: 10px;
+    border-left: 4px solid #2b4d90;
+}
+
+.caja span {
+    font-weight: bold;
+    color: #2b4d90;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+function abrirMenu() {
+    document.getElementById("sidebar").style.width = "260px";
+}
+function cerrarMenu() {
+    document.getElementById("sidebar").style.width = "0";
+}
+</script>
 
 </head>
+
 <body>
 
-    <!-- MENU LATERAL DESPLEGABLE -->
-    <div id="menu" class="menu-lateral">
-        <a href="#" onclick="cerrarMenu()">Cerrar menú</a>
-        <a href="tablero.html">Casa</a>
-        <a href="perfil.html">Perfil</a>
-        <a href="notas.html">Calificaciones</a>
-        <a href="index.html">Cerrar sesión</a>
+<!-- BOTÓN MENÚ -->
+<button class="menu-btn" onclick="abrirMenu()">☰</button>
+
+<!-- MENÚ LATERAL -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="cerrarMenu()">✖ Cerrar</a>
+    <a href="dashboard.html">🏠 Tablero</a>
+    <a href="perfil.html">👤 Perfil</a>
+    <a href="notas.html"><b>📘 Notas</b></a>
+    <a href="#">Trámites</a>
+    <a href="#">Bienestar</a>
+    <a href="#">Inscripción</a>
+    <a href="#">Finanzas</a>
+</div>
+
+<!-- ENCABEZADO CON LOGO -->
+<div class="header">
+    <img src="logotipo.png" alt="Logo">
+    <div class="header-info">
+        <div class="titulo">Alex Mariana Ibarguen Rumpf</div>
+        <div class="subtitulo">Código: 0000336259</div>
+    </div>
+</div>
+
+<!-- CUADRO PRINCIPAL -->
+<div class="contenedor">
+
+<h2>Calificaciones Oficiales</h2>
+
+<table>
+    <tr>
+        <th>Clase</th>
+        <th>Descripción</th>
+        <th>Unidades</th>
+        <th>Calificación</th>
+    </tr>
+
+    <tr>
+        <td class="codigo">AFE CSEX 578002</td>
+        <td>P&CII PERSONA Y AFECTIVIDAD</td>
+        <td>2,00</td>
+        <td>4.8</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">EMPINNOE 81112</td>
+        <td>IND. MUNDIALES INNOVADORAS</td>
+        <td>2,00</td>
+        <td>4.9</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">FINANZAS 81118</td>
+        <td>MATEMATICAS FINANCIERAS</td>
+        <td>2,00</td>
+        <td>4.0</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">INGLES 62135</td>
+        <td>INGLES 5</td>
+        <td>3,00</td>
+        <td>3.8</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">MATFISEI 21101</td>
+        <td>CALCULO DIFERENCIAL</td>
+        <td>3,00</td>
+        <td>3.4</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">NEGOCOMIN 3602ECI</td>
+        <td>ELECTIVA DE COMERCIO INTERNACIONAL</td>
+        <td>3,00</td>
+        <td>4.4</td>
+    </tr>
+
+    <tr>
+        <td class="codigo">SEREICEA 81121</td>
+        <td>TEORIA SERVICIO LA CALIDAD</td>
+        <td>3,00</td>
+        <td>4.2</td>
+    </tr>
+</table>
+
+</div>
+
+<!-- CUADRO INFERIOR -->
+<div class="recuadro-info">
+
+<h3>Resumen Académico</h3>
+
+<div class="info-grid">
+
+    <div class="caja">
+        <span>Promedio del ciclo:</span><br> 4.16
     </div>
 
-    <!-- ENCABEZADO -->
-    <header>
-        <button class="menu-btn" onclick="abrirMenu()">☰</button>
-
-        <div class="datos-usuario">
-            <img src="logotipo.png" alt="Logo Sabana">
-
-            <div>
-                <div class="titulo">Calificaciones Oficiales</div>
-                <div class="subtitulo">Alex Mariana Ibargüen Rumpf • 0000336259</div>
-            </div>
-        </div>
-    </header>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="contenedor">
-
-        <div class="cuadro">
-            <h2 class="titulo-seccion">Notas por Asignatura</h2>
-
-            <table>
-                <tr>
-                    <th>Asignatura</th>
-                    <th>Créditos</th>
-                    <th>Nota</th>
-                </tr>
-
-                <tr>
-                    <td>Administración I</td>
-                    <td class="decimal">3,00</td>
-                    <td class="decimal">4,20</td>
-                </tr>
-
-                <tr>
-                    <td>Fundamentos de Mercadeo</td>
-                    <td class="decimal">2,00</td>
-                    <td class="decimal">4,10</td>
-                </tr>
-
-                <tr>
-                    <td>Cálculo</td>
-                    <td class="decimal">3,00</td>
-                    <td class="decimal">3,90</td>
-                </tr>
-
-            </table>
-        </div>
-
-        <!-- CUADRO DE PROMEDIOS -->
-        <div class="cuadro">
-            <h2 class="titulo-seccion">Resumen Académico</h2>
-
-            <p><b>Promedio del ciclo:</b> 4.16</p>
-            <p><b>Promedio acumulado:</b> 4.11</p>
-            <p><b>Programa:</b> Administración de Mercadeo y Logística Internacional</p>
-        </div>
-
+    <div class="caja">
+        <span>Promedio acumulado:</span><br> 4.07
     </div>
+
+    <div class="caja">
+        <span>Programa:</span><br> Administración de Mercadeo y Logística Internacional
+    </div>
+
+</div>
+
+</div>
 
 </body>
 </html>
