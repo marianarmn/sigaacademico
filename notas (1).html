@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas Definitivas - Alex Mariana Ibarguen Rumpf</title>
 
     <style>
@@ -9,49 +10,88 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
         }
 
-        /* ENCABEZADO */
-        .header {
-            background: white;
+        /* ---------------- MENU LATERAL ---------------- */
+        .menu-btn {
+            font-size: 28px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #2b4d90;
+            font-weight: bold;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -260px;
+            padding-top: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar a {
+            display: block;
             padding: 15px 25px;
+            text-decoration: none;
+            color: #2b4d90;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar a:hover {
+            background: #e8eef8;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        /* ---------------- HEADER ---------------- */
+        .top {
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            gap: 15px;
+            padding: 15px 25px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        .header img {
-            height: 60px;
-            margin-right: 15px;
+        .top img {
+            height: 55px;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 22px;
+        .titulo {
+            font-size: 20px;
+            font-weight: bold;
             color: #2b4d90;
         }
 
-        .header p {
-            margin: 0;
-            margin-top: 3px;
+        .subtitulo {
             font-size: 14px;
-            color: #444;
+            margin-top: 2px;
+            color: #333;
         }
 
+        /* ---------------- TABLA DE NOTAS ---------------- */
         h2 {
             background-color: #2b4d90;
             color: white;
-            padding: 10px;
+            padding: 12px;
             width: fit-content;
             border-radius: 4px;
             font-size: 18px;
-            margin: 20px auto;
+            margin-left: 25px;
+            margin-top: 25px;
         }
 
         table {
-            width: 90%;
-            margin: auto;
+            width: 94%;
+            margin: 10px auto;
             border-collapse: collapse;
             background: white;
         }
@@ -73,55 +113,78 @@
             color: #2b4d90;
             font-weight: bold;
             text-decoration: underline;
+            cursor: pointer;
         }
 
-        /* RECUADRO FINAL */
-        .resumen {
-            width: 90%;
-            margin: 20px auto;
+        /* ---------------- RECUADRO DE PROMEDIOS ---------------- */
+        .promedios {
+            width: 94%;
             background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 5px solid #2b4d90;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
         }
 
-        .resumen h3 {
-            margin-top: 0;
+        .promedios h3 {
             color: #2b4d90;
+            margin-top: 0;
+            font-size: 18px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            table, th, td {
+        .fila {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        @media(max-width: 700px) {
+            .fila {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            table {
                 font-size: 13px;
-            }
-
-            .header h1 {
-                font-size: 18px;
-            }
-
-            .header img {
-                height: 50px;
             }
         }
     </style>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("open");
+        }
+    </script>
+
 </head>
 
 <body>
 
+    <!-- BOTÓN MENU -->
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+    <!-- MENU LATERAL DESPLEGABLE -->
+    <div class="sidebar" id="sidebar">
+        <a href="dashboard.html">🏠 Inicio</a>
+        <a href="notas.html">📝 Notas</a>
+        <a href="#">💰 Finanzas</a>
+        <a href="#">📚 Inscripción</a>
+        <a href="#">🎓 Becas</a>
+        <a href="#">👤 Perfil</a>
+    </div>
+
     <!-- ENCABEZADO -->
-    <div class="header">
-        <img src="logotipo.png" alt="Logo Universidad de La Sabana">
+    <div class="top">
+        <img src="logotipo.png" alt="Logo Universidad">
         <div>
-            <h1>Alex Mariana Ibarguen Rumpf</h1>
-            <p>Código del estudiante: 0000336259</p>
+            <div class="titulo">Alex Mariana Ibarguen Rumpf</div>
+            <div class="subtitulo">Código del estudiante: 0000336259</div>
         </div>
     </div>
 
     <h2>Calificaciones Oficiales</h2>
 
-    <!-- TABLA PRINCIPAL -->
     <table>
         <tr>
             <th>Clase</th>
@@ -180,12 +243,21 @@
         </tr>
     </table>
 
-    <!-- RECUADRO FINAL -->
-    <div class="resumen">
-        <h3>Resumen Académico</h3>
-        <p><strong>Promedio del ciclo:</strong> 4.16</p>
-        <p><strong>Promedio acumulado:</strong> 4.07</p>
-        <p><strong>Programa:</strong> Administración de Mercadeo y Logística Internacional</p>
+    <!-- RECUADRO DE PROMEDIOS -->
+    <div class="promedios">
+        <h3>Resumen del Ciclo</h3>
+
+        <div class="fila">
+            <strong>Promedio del ciclo:</strong> 4.16
+        </div>
+
+        <div class="fila">
+            <strong>Promedio acumulado:</strong> 4.07
+        </div>
+
+        <div class="fila">
+            <strong>Programa cursado:</strong> Administración de Mercadeo y Logística Internacional
+        </div>
     </div>
 
 </body>
