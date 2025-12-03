@@ -3,114 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero Principal</title>
-
+    <title>Tablero Académico</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff; /* Fondo blanco */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
         }
 
-        .header {
+        header {
             display: flex;
             align-items: center;
             padding: 20px;
+            background-color: white;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
 
-        .header img {
+        header img {
             height: 60px;
+            margin-right: 15px;
         }
 
-        .welcome {
-            font-size: 26px;
-            margin-left: 20px;
-            font-weight: bold;
+        .titulo {
+            font-size: 28px;
+            font-weight: 600;
         }
 
-        .container {
+        .subtitulo {
+            font-size: 16px;
+            color: #555;
+            margin-top: -5px;
+        }
+
+        .contenedor {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
             gap: 25px;
             padding: 40px;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .card {
-            background: #ffffff;
+            background-color: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: 0.2s;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
         }
 
         .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            transform: translateY(-4px);
+            box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
         }
 
-        .card h2 {
+        .card h3 {
             margin: 0;
             font-size: 20px;
-            color: #1a1a1a;
         }
 
         .card p {
-            color: #444;
             margin-top: 8px;
+            color: #666;
             font-size: 15px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Encabezado -->
-    <div class="header">
+    <header>
         <img src="logotipo.png" alt="Logo Sabana">
-        <div class="welcome">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
-    </div>
+        <div>
+            <div class="titulo">Bienvenido, Alex Mariana Ibarguen Rumpf</div>
+            <div class="subtitulo">Código del estudiante: 0000336259</div>
+        </div>
+    </header>
 
-    <!-- Contenedor de tarjetas -->
-    <div class="container">
+    <div class="contenedor">
 
-        <a href="notas.html">
-            <div class="card">
-                <h2>Historia Académica</h2>
-                <p>Mis Notas Definitivas</p>
-            </div>
-        </a>
+        <div class="card" onclick="location.href='notas.html'">
+            <h3>Historia Académica</h3>
+            <p>Mis notas definitivas</p>
+        </div>
 
         <div class="card">
-            <h2>Bienestar Universitario</h2>
+            <h3>Bienestar Universitario</h3>
             <p>Consultas, apoyos, actividades, PAT</p>
         </div>
 
         <div class="card">
-            <h2>Información Académica</h2>
+            <h3>Información Académica</h3>
             <p>Syllabus, asesores, parciales</p>
         </div>
 
         <div class="card">
-            <h2>Finanzas</h2>
+            <h3>Finanzas</h3>
             <p>Pagos, créditos, cuentas</p>
         </div>
 
-        <!-- NUEVOS RECUADROS -->
         <div class="card">
-            <h2>Becas y Ayudas</h2>
-            <p>Apoyos económicos, becas institucionales</p>
+            <h3>Becas y Ayudas</h3>
+            <p>Apoyos económicos e institucionales</p>
         </div>
 
         <div class="card">
-            <h2>Inscripción de Asignaturas</h2>
+            <h3>Inscripción de Asignaturas</h3>
             <p>Registro de materias y horarios</p>
+        </div>
+
+        <!-- BLOQUES NUEVOS QUE PEDISTE -->
+
+        <div class="card">
+            <h3>Trámites</h3>
+            <p>Certificados, constancias, solicitudes</p>
+        </div>
+
+        <div class="card">
+            <h3>Práctica Social</h3>
+            <p>Programas sociales y requisitos</p>
+        </div>
+
+        <div class="card">
+            <h3>Práctica Profesional</h3>
+            <p>Empresas, asignación, informes</p>
+        </div>
+
+        <div class="card">
+            <h3>Solicitud de Créditos</h3>
+            <p>Líneas de financiación y apoyos</p>
+        </div>
+
+        <div class="card">
+            <h3>Alumni - Graduados</h3>
+            <p>Vínculo profesional y beneficios</p>
+        </div>
+
+        <div class="card">
+            <h3>Información del Alumno</h3>
+            <p>Datos personales, programa, facultad</p>
         </div>
 
     </div>
